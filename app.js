@@ -9,6 +9,7 @@ const board = document.querySelector("#board");
 const aimerGame = document.querySelector(".aimerGame");
 const slider = document.querySelector(".slider");
 const startBtn = document.querySelector("#start-btn");
+const guitarShop = document.querySelector(".guitarShop");
 const lights = ["#E8A380", "#F456E9", "#848DDB", "#85F2DA", "#B4E880"];
 createSlider();
 for (const [index, slide] of slides.entries()) {
@@ -30,6 +31,11 @@ for (const [index, slide] of slides.entries()) {
       createSlider();
     } else {
       removeSilder();
+    }
+    if (index === 3) {
+      createShop();
+    } else {
+      removeShop();
     }
   });
 }
@@ -104,5 +110,20 @@ function createSlider() {
 function removeSilder() {
   while (slider.firstChild) {
     slider.removeChild(slider.firstChild);
+  }
+}
+function createShop() {
+  if (!guitarShop.firstChild) {
+    const shopFrame = document.createElement("iframe");
+    shopFrame.src = "shop/index.html";
+    shopFrame.height = "100%";
+    shopFrame.width = "100%";
+    shopFrame.style.borderRadius = "20px";
+    guitarShop.appendChild(shopFrame);
+  }
+}
+function removeShop() {
+  while (guitarShop.firstChild) {
+    guitarShop.removeChild(guitarShop.firstChild);
   }
 }
