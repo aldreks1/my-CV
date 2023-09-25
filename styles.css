@@ -216,3 +216,12 @@ body {
     #a8eb12
   );
 }
+
+.doodle{
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+.slide:nth-child(5) {
+  background: #e5ec0b;
+}

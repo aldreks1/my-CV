@@ -10,6 +10,7 @@ const aimerGame = document.querySelector(".aimerGame");
 const slider = document.querySelector(".slider");
 const startBtn = document.querySelector("#start-btn");
 const guitarShop = document.querySelector(".guitarShop");
+const doodle = document.querySelector(".doodle");
 const lights = ["#E8A380", "#F456E9", "#848DDB", "#85F2DA", "#B4E880"];
 createSlider();
 for (const [index, slide] of slides.entries()) {
@@ -36,6 +37,11 @@ for (const [index, slide] of slides.entries()) {
       createShop();
     } else {
       removeShop();
+    }
+    if (index === 4) {
+      createDoodle();
+    } else {
+      removeDoodle();
     }
   });
 }
@@ -125,5 +131,23 @@ function createShop() {
 function removeShop() {
   while (guitarShop.firstChild) {
     guitarShop.removeChild(guitarShop.firstChild);
+  }
+}
+
+
+function createDoodle(){
+  if(!doodle.firstChild){
+    const doodleFrame = document.createElement("iframe");
+    doodleFrame.src = "doodle/index.html";
+    doodleFrame.height = "100%";
+    doodleFrame.width = "100%";
+    doodleFrame.style.borderRadius = "20px";
+    doodle.appendChild(doodleFrame);
+  }
+}
+
+function removeDoodle() {
+  while (doodle.firstChild) {
+    doodle.removeChild(doodle.firstChild);
   }
 }
